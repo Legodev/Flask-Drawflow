@@ -1,0 +1,3 @@
+[submodule "static/Drawflow"]
+	path = static/Drawflow
+	url = https://github.com/jerosoler/Drawflow.git

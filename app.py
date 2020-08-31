@@ -38,37 +38,3 @@ def example_01():
 if __name__ == '__main__':
     app.secret_key = os.urandom(12)  # Random key for dev purposes
     app.run()
-
-"""
-import fab
-import math
-
-title('Cylinder (X)')
-
-input('xmin', float)
-input('xmax', float)
-input('y', float)
-input('z', float)
-input('r', float)
-
-output('shape', fab.shapes.cylinder_x(xmin, xmax, y, z, r))
-
-# UI
-sb.ui.wireframe([(xmin, y, z), (xmax, y, z)])
-sb.ui.wireframe([(xmin, y, z), (xmin, y, z + r)])
-
-sb.ui.wireframe([
-    (xmin, math.cos(i/36. * 2*math.pi) * r + y,
-     math.sin(i/36. * 2*math.pi) * r + z)
-    for i in range(36)], close=True)
-
-sb.ui.wireframe([
-    (xmax, math.cos(i/36. * 2*math.pi) * r + y,
-     math.sin(i/36. * 2*math.pi) * r + z)
-    for i in range(36)], close=True)
-
-sb.ui.point(xmin, y, z)
-sb.ui.point(xmax, y, z)
-sb.ui.point(xmin, y, z + r, drag=(None, None, r))
-
-"""

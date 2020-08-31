@@ -3,11 +3,13 @@ from components.base.drawflownodebase import DrawflowNodeBase
 
 class TelegramNode(DrawflowNodeBase):
     def __init__(self):
+        super().__init__()
+
         self.name('telegram')
         self.title('Telegram send message')
         self.input('msg', str)
         self.icon('fab fa-telegram')
-        self.nodehtml("""
+        self.html("""
               <div>
                 <div class="title-box"><i class="fab fa-telegram-plane"></i> Telegram bot</div>
                 <div class="box">

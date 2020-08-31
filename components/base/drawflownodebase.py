@@ -1,28 +1,29 @@
 class DrawflowNodeBase:
-    name = "basenode"
-    title = "Basenode"
-    inputs = list()
-    outputs = list()
-    icon = ""
-    nodehtml = "<b>DO NOT USE THE BASE NODE!!!</b>"
+    def __init__(self):
+        self.nodename = "basenode"
+        self.nodetitle = "Basenode"
+        self.nodeinputs = list()
+        self.nodeoutputs = list()
+        self.nodeicon = ""
+        self.nodehtml = "<b>DO NOT USE THE BASE NODE!!!</b>"
 
     def name(self, name):
-        self.name = name
+        self.nodename = name
 
     def title(self, title):
-        self.title = title
+        self.nodetitle = title
 
     def input(self, varname, type):
-        self.inputs.append((varname, type))
+        self.nodeinputs.append((varname, type))
 
     def output(self, varname, type):
-        self.outputs.append((varname, type))
+        self.nodeoutputs.append((varname, type))
 
     def icon(self, html):
-        self.icon = html
+        self.nodeicon = html
 
-    def nodehtml(self, html):
+    def html(self, html):
         self.nodehtml = html
 
     def getAsTuple(self):
-        return (self.title, len(self.inputs), len(self.outputs), self.icon, self.name, self.nodehtml)
+        return (self.nodetitle, len(self.nodeinputs), len(self.nodeoutputs), self.nodeicon, self.nodename, self.nodehtml)

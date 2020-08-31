@@ -3,6 +3,8 @@ from uuid import UUID
 
 class MultipleIONode(DrawflowNodeBase):
     def __init__(self):
+        super().__init__()
+
         self.name('multiple')
         self.title("Multiple inputs / outputs")
 
@@ -16,4 +18,4 @@ class MultipleIONode(DrawflowNodeBase):
         self.output("isHappy", bool)
 
         self.icon('fas fa-code-branch')
-        self.nodehtml("""<div><div class="box">Multiple!</div></div>""")
+        self.html("""<div><div class="box">Multiple!</div></div>""")

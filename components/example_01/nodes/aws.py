@@ -2,12 +2,13 @@ from components.base.drawflownodebase import DrawflowNodeBase
 
 
 class AWSNode(DrawflowNodeBase):
-    name = "AWS"
-    inputs = 1
-    outputs = 1
-    icon = 'fab fa-aws'
-    node = 'aws'
-    nodehtml = """
+    def __init__(self):
+        self.name('aws')
+        self.title("AWS")
+        self.input("input1", str)
+        self.output("output1", str)
+        self.icon('fab fa-aws')
+        self.nodehtml("""
           <div>
             <div class="title-box"><i class="fab fa-aws"></i> Aws Save </div>
             <div class="box">
@@ -17,7 +18,4 @@ class AWSNode(DrawflowNodeBase):
               <p>Output Log</p>
             </div>
           </div>
-          """
-
-    def getAsTuple(self):
-        return (self.name, self.inputs, self.outputs, self.icon, self.node, self.nodehtml)
+          """)

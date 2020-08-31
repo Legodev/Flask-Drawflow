@@ -1,13 +1,19 @@
 from components.base.drawflownodebase import DrawflowNodeBase
-
+from uuid import UUID
 
 class MultipleIONode(DrawflowNodeBase):
-    name = "Multiple inputs / outputs"
-    inputs = 3
-    outputs = 4
-    icon = 'fas fa-code-branch'
-    node = 'multiple'
-    nodehtml = """<div><div class="box">Multiple!</div></div>"""
+    def __init__(self):
+        self.name('multiple')
+        self.title("Multiple inputs / outputs")
 
-    def getAsTuple(self):
-        return (self.name, self.inputs, self.outputs, self.icon, self.node, self.nodehtml)
+        self.input("Name", str)
+        self.input("Age", int)
+        self.input("ID", UUID)
+
+        self.output("Friends", list())
+        self.output("Groups", list())
+        self.output("Projects", list())
+        self.output("isHappy", bool)
+
+        self.icon('fas fa-code-branch')
+        self.nodehtml("""<div><div class="box">Multiple!</div></div>""")

@@ -30,7 +30,7 @@
 <div class="wrapper">
     {# presentation of available nodes #}
     <div class="col">
-        {% for name, icon, node, nodehtml in avail_nodes %}
+        {% for name, inputs, outputs, icon, node, nodehtml in avail_nodes %}
             <div class="drag-drawflow" draggable="true" ondragstart="drag(event)" data-node="{{ node }}">
                 {% if icon != "" %}
                     <i class="{{ icon }}"></i>
@@ -371,10 +371,10 @@
         pos_y = pos_y * (editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)) - (editor.precanvas.getBoundingClientRect().y * (editor.precanvas.clientHeight / (editor.precanvas.clientHeight * editor.zoom)));
 
         switch (name) {
-            {% for name, icon, node, nodehtml in avail_nodes %}
+            {% for name, inputs, outputs, icon, node, nodehtml in avail_nodes %}
                 case '{{ node }}':
                     var {{ node }} = `{{ nodehtml|safe }}`;
-                    editor.addNode('{{ node }}', 0, 1, pos_x, pos_y, '{{ node }}', {}, {{ node }});
+                    editor.addNode('{{ node }}', {{ inputs }}, {{ outputs }}, pos_x, pos_y, '{{ node }}', {}, {{ node }});
                 break;
             {% endfor %}
             default:
